@@ -15,7 +15,7 @@ html,body {
   position: relative;
 
   width: 100%;
-  height: 680px;
+  height: 100%;
 }
 /*stage-end*/
 
@@ -28,6 +28,32 @@ html,body {
   overflow: hidden;
 
   background-color: #ddd;
+
+  @at-root {
+    .img-figure {
+      position: absolute;
+
+      width: 320px;
+      height: 360px;
+      margin: 0;
+      padding: 40px;
+
+      background-color: #fff;
+
+      box-sizing: border-box;
+    }
+
+    figcaption {
+      text-align: center;
+
+      .img-title {
+        margin: 20px 0 0 0;
+
+        color: #a7a0a2;
+      }
+    }
+  }
+
 }
 /*image-end*/
 
