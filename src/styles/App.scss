@@ -27,6 +27,9 @@ html,body {
   height: 100%;
   overflow: hidden;
 
+  //增大用户可视距离，既使3D效果更明显
+  perspective: 1800px;
+
   background-color: #ddd;
 
   @at-root {
@@ -39,8 +42,20 @@ html,body {
       padding: 40px;
 
       background-color: #fff;
+      cursor: pointer;
+
 
       box-sizing: border-box;
+      //翻转效果的主要特效，就是以下三句
+      transform-origin: 0 50% 0;
+      transform-style: preserve-3d;
+      transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
+
+      //&表示与img-figure同级的类名
+      &.is-inverse {
+        transform: translate(320px) rotateY(180deg) ;
+        //transform: rotateY(180deg) ;
+      }
     }
 
     figcaption {
@@ -50,6 +65,33 @@ html,body {
         margin: 20px 0 0 0;
 
         color: #a7a0a2;
+        font-size: 16px;
+      }
+      .img-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        padding: 50px 40px;
+        overflow: auto;
+
+        color: #a7a0a2;
+        font-size: 22px;
+        line-height: 1.25;
+        text-align: left;
+
+        background-color: #fff;
+
+        box-sizing: border-box;
+        transform: rotateY(180deg) translate(1px);
+        //transform: rotateY(180deg) ;
+        backface-visibility: hidden;
+
+        p {
+          margin: 0;
+        }
       }
     }
   }
@@ -68,4 +110,4 @@ html,body {
 
   text-align: center;
 }
-/*cpontroller-end*/
+/*controller-end*/
